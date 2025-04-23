@@ -1,0 +1,17 @@
+<ng-template #template>
+  <div class="svc-toolbox__category" [class.svc-toolbox__category--collapsed]="category.collapsed"
+    [class.svc-toolbox__category--empty]="category.empty">
+    <div class="svc-toolbox__category-header-wrapper">
+      <div class="svc-toolbox__category-header"
+        (click)="category.toggleState()" [key2click] [class.svc-toolbox__category-header--collapsed]="toolbox.canCollapseCategories" >
+        <span class="svc-toolbox__category-title">{{category.title}}</span>
+        <div *ngIf="toolbox.canCollapseCategories" class="svc-toolbox__category-header__controls">
+          <svg [iconName]="category.iconName" [class]="category.iconClassName" [size]="'auto'" sv-ng-svg-icon></svg>
+        </div>
+      </div>
+    </div>
+      <ng-container *ngFor="let item of category.items; trackBy: trackItemBy">
+        <svc-toolbox-tool [item]="item" [creator]="toolbox.creator" [parentModel]="toolbox" [isCompact]="false" ></svc-toolbox-tool>
+      </ng-container>
+  </div>
+</ng-template>

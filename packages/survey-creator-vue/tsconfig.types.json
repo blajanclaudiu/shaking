@@ -1,0 +1,32 @@
+// tsconfig.build-types.json
+{
+    "compilerOptions": {
+        "outDir": "./build/types",
+        "declaration": true,
+        "skipLibCheck": true,
+        "types": [
+            "node",
+            "vite/client",
+        ],
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ],
+            "vue": [
+                "./node_modules/vue"
+            ],
+            "survey-core": [
+                "./node_modules/survey-core"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.cy.ts",
+        "**/*.spec.ts",
+        "**/__tests__/**/*"
+    ]
+}
